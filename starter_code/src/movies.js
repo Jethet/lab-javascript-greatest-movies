@@ -47,8 +47,31 @@ function orderAlphabetically(arr) {
 }
 
 // Iteration 4: All rates average - Get the average of all rates with 2 decimals
+function ratesAverage(arr) {
+    const arr2 = [...arr];
+    const ratesArr = arr2.map(function(movie) {
+        return movie.rate;  // ratesArr contains all rates into array
+    });
+    const rateTotal = ratesArr.reduce(function(sum, movie) {
+        return sum + movie.rate;
+    }, 0);
+
+    let averageRate = rateTotal / ratesArr.length;
+   // let averageRateRounder = Math.round(averageRate * 100) / 100;
+    return averageRateRounder;
+}
 
 // Iteration 5: Drama movies - Get the average of Drama Movies
+
+function dramaMoviesRate(arr){
+    const arrDrama = arr.filter(function(e){
+        return e.genre.includes("Drama");
+});
+let rateTotal = arrDrama.reduce(function(sum, movie){
+    return sum + movie.rate;
+}, 0);
+return rateTotal / arrDrama.length;
+}
 
 // Iteration 6: Time Format - Turn duration of the movies from hours to minutes
 
